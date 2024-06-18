@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        ex06();
+        ex10();
     }
 
     public static void ex01() throws IOException {
@@ -81,7 +81,7 @@ public class Main {
     public static void ex05() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int num = Integer.parseInt(br.readLine());
-        for (int i=0 ; i<num/4 ; i++) {
+        for (int i = 0; i < num / 4; i++) {
             System.out.print("long ");
         }
 
@@ -113,5 +113,78 @@ public class Main {
 
         br.close();
         bw.flush();
+    }
+
+    public static void ex07() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int num = Integer.parseInt(br.readLine());
+        int a = 0, b = 0;
+        int sumArr[] = new int[num];
+
+        for (int i = 0; i < num; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            a = Integer.parseInt(st.nextToken());
+            b = Integer.parseInt(st.nextToken());
+
+            sumArr[i] = a + b;
+        }
+
+        for (int i = 0; i < num; i++) {
+            bw.write("Case #" + (i + 1) + ": " + sumArr[i] + "\n");
+        }
+
+        br.close();
+        bw.flush();
+    }
+
+    public static void ex08() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int num = Integer.parseInt(br.readLine());
+        int a = 0, b = 0;
+        int sumArr[] = new int[num];
+        int aArr[] = new int[num];
+        int bArr[] = new int[num];
+
+        for (int i = 0; i < num; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            a = Integer.parseInt(st.nextToken());
+            b = Integer.parseInt(st.nextToken());
+
+            sumArr[i] = a + b;
+            aArr[i] = a;
+            bArr[i] = b;
+        }
+
+        for (int i = 0; i < num; i++) {
+            bw.write("Case #" + (i + 1) + ": " + aArr[i] + " + " + bArr[i] + " = " + sumArr[i] + "\n");
+        }
+
+        br.close();
+        bw.flush();
+    }
+
+    public static void ex09() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int num = Integer.parseInt(br.readLine());
+
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        br.close();
+    }
+
+    public static void ex10() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int num = Integer.parseInt(br.readLine());
+        
+        br.close();
     }
 }
