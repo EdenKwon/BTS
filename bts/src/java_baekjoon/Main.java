@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        ex10();
+        ex12();
     }
 
     public static void ex01() throws IOException {
@@ -184,7 +184,60 @@ public class Main {
     public static void ex10() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int num = Integer.parseInt(br.readLine());
-        
+        for (int i = 1; i <= num; i++) {
+            for (int j = num; j > i; j--) {
+                System.out.print(" ");
+            }
+
+            for(int j = 1; j <= i ; j++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+
         br.close();
+    }
+
+    public static void ex11() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+
+        while(true) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+
+            if(a == 0 && b == 0) {
+                break;
+            }
+            bw.write(a + b+ "\n");
+            //bw는 되고 sc는 안되는 이유?
+            //bw는 입력 값을 모아서 출력하고 sc는 바로 출력하기 때문.
+        }
+
+        br.close();
+        bw.flush();
+    }
+
+    public static void ex12() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        while (true) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            if(!st.hasMoreTokens()) {
+                break;
+            }
+
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+
+            bw.write(a + b + "\n");
+        }
+
+        br.close();
+        bw.flush();
     }
 }
