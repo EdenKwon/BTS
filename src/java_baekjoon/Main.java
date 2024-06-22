@@ -1,5 +1,4 @@
 package java_baekjoon;
-//
 
 import java.io.*;
 import java.util.*;
@@ -9,7 +8,7 @@ public class Main {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
   public static void main(String[] args) throws IOException {
-    ex08();
+    ex10();
   }
 
   public static void ex01() throws IOException {
@@ -152,17 +151,72 @@ public class Main {
     int arr[] = new int[42];
     int count = 0;
 
-    for (int i = 0; i<10; i++) {
+    for (int i = 0; i < 10; i++) {
       int num = Integer.parseInt(br.readLine());
-      arr[num%42]++; //ex) num이 2라면 arr[2]에 1++ why? 나머지는 0부터 시작하기 때문
+      arr[num % 42]++; //ex) num이 2라면 arr[2]에 1++ why? 나머지는 0부터 시작하기 때문
     }
 
-    for(int i = 0; i<42; i++) {
+    for (int i = 0; i < 42; i++) {
       if (arr[i] != 0) {
         count++;
       }
     }
 
     System.out.println(count);
+  }
+
+  public static void ex09() throws IOException {
+    StringTokenizer st = new StringTokenizer(br.readLine());
+    int size = Integer.parseInt(st.nextToken());
+    int num = Integer.parseInt(st.nextToken());
+    int arr[] = new int[size];
+    int temp[] = new int[size];
+
+    for (int i = 1; i <= size; i++) {
+      arr[i - 1] = i;
+    }
+
+    for (int i = 0; i < num; i++) {
+      st = new StringTokenizer(br.readLine());
+      int front = Integer.parseInt(st.nextToken());
+      int end = Integer.parseInt(st.nextToken());
+
+      for (int j = 0; j < size; j++) { //temp 초기화
+        temp[j] = arr[j];
+      }
+
+      for (int j = 0; j <= end - front; j++) { //reverse
+        arr[front - 1 + j] = temp[end - 1 - j];
+      }
+    }
+
+    for (int i : arr) {
+      System.out.print(i + " ");
+    }
+  }
+
+  public static void ex10() throws IOException {
+    int subject = Integer.parseInt(br.readLine());
+    StringTokenizer st = new StringTokenizer(br.readLine());
+    int arr[] = new int[subject];
+    int max = 0;
+    double sum = 0;
+
+    // 입력값으로 배열 초기화
+    for(int i = 0; i < subject; i++) {
+      arr[i] = Integer.parseInt(st.nextToken());
+    }
+
+    for(int i=0; i<subject; i++) {
+      if(arr[i] > max) {
+        max = arr[i];
+      }
+    }
+
+    for(int i=0; i<subject; i++) {
+      sum += (double)arr[i] / max * 100;
+    }
+
+    System.out.println(sum / subject);
   }
 }
