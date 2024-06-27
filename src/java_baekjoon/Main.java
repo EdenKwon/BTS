@@ -8,7 +8,7 @@ public class Main {
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
   public static void main(String[] args) throws IOException {
-    ex03();
+    ex04();
   }
 
   public static void ex01() {
@@ -63,5 +63,22 @@ public class Main {
       System.out.println();
     }
 
+  }
+
+  public static void ex04() throws IOException {
+    String word = br.readLine();
+    boolean isPal = true;
+
+    for(int i=0; i<word.length()/2; i++) {
+      if(word.charAt(i) != word.charAt(word.length()-i-1)){
+        isPal = false;
+      }
+    }
+
+    if(isPal) {
+      System.out.println("1");
+    } else {
+      System.out.println("0");
+    }
   }
 }
