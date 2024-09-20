@@ -72,7 +72,7 @@ public class Main {
 
     for(int i=3; i<5; i++) {
       drinkList.add(Integer.valueOf(br.readLine()));
-    } //dsdsd
+    } 
   }
 
   public static void ex02() throws IOException{
